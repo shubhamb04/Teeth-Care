@@ -36,7 +36,7 @@ a {
 .progress-container {
   width: 100%;
   height: 8px;
-  background: rgb(255, 255, 255);
+  background-color: var(--white);
   position: fixed;
   z-index: 1;
 }
@@ -48,8 +48,9 @@ a {
 }
 
 nav {
-  background: var(--white);
+  background: var(--orchid);
   box-shadow: var(--light-shadow);
+  color: var(--white);
 }
 
 .nav-header {
@@ -57,11 +58,12 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  padding-bottom: 0;
 }
 
 .nav-toggle {
   font-size: 1.5rem;
-  color: var(--orchid);
+  color: var(--white);
   background: transparent;
   border-color: transparent;
   transition: var(--transition);
@@ -69,15 +71,15 @@ nav {
   outline: none;
 }
 
-.nav-toggle:hover {
+.nav-toggle:active {
   color: var(--lavender);
 }
-.nav-toggle:focus {
+.nav-toggle:hover {
   transform: rotate(90deg);
 }
 
 .links a {
-  color: var(--orchid-black);
+  color: var(--white);
   font-size: 1rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -105,6 +107,7 @@ nav {
 @media screen and (min-width: 768px) {
   nav {
     box-shadow: none;
+    height: 5em;
   }
   .nav-center {
     max-width: 1170px;
@@ -142,6 +145,8 @@ img {
 .title {
   font-weight: 900;
   margin: 0;
+  color: var(--white);
+  font-size: 1.4rem;
 }
 
 .address-title {
@@ -152,18 +157,14 @@ img {
 .section-title {
   color: var(--orchid);
   font-size: 1.5rem;
+  font-weight: 900;
 }
 
 .title-text {
-  color: var(--orchid);
   margin: 0;
   font-size: 1rem;
   font-weight: 900;
 }
-
-/* #navbar {
-    display: none;
-} */
 
 .video-box {
   margin: 0;
@@ -171,7 +172,35 @@ img {
 
 .img-box {
   width: 100%;
-  height: auto;
+  position: relative;
+}
+.fee {
+  position: absolute;
+  top: 5px;
+  border-top: solid 2px var(--orchid-black);
+  border-bottom: solid 2px var(--orchid-black);
+}
+
+.appointment,
+.fee {
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5em;
+  width: max-content;
+}
+
+.appointment {
+  position: absolute;
+  bottom: 20px;
+  background-color: var(--orchid);
+  color: var(--white);
+  transition: all 1s;
+}
+
+.appointment:hover {
+  background-color: var(--orchid-black);
 }
 
 .dental-img {
@@ -181,7 +210,6 @@ img {
 /* service section */
 
 .service-box {
-  /* margin: 0; */
   width: 100%;
   box-sizing: border-box;
   padding: 2em;
@@ -189,7 +217,6 @@ img {
 
 .service-inner-box {
   width: 100%;
-  /* padding: 2em; */
 }
 
 .service-style {
@@ -199,9 +226,7 @@ img {
 .service-text,
 .about-text,
 .contact-text {
-  margin-bottom: 2em;
-  /* font-family: Ubuntu; */
-  /* font-weight: 400; */
+  margin-bottom: 0.5em;
   font-size: 1rem;
 }
 
@@ -317,7 +342,8 @@ dt {
   margin: 0;
 }
 
-dl {
+dl,
+.contact-text {
   color: rgb(90, 90, 90);
 }
 
@@ -326,6 +352,7 @@ dl {
   color: #ffffff;
   padding-bottom: 1em;
   padding-left: 3em;
+  font-size: 0.9rem;
 }
 
 .copy-flex {
@@ -364,7 +391,7 @@ dl {
   text-decoration: none;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .about-us,
   .contact-flex,
   .flex-class {
@@ -373,13 +400,17 @@ dl {
     justify-content: space-between;
   }
 
+  .about-img-box {
+    width: 50%;
+  }
   .about-img {
-    width: 300px;
+    width: 50%;
     margin: auto;
-    border: #ffffff solid 0.5em;
+    border-radius: 50%;
+    border: var(--orchid-black) solid 0.5em;
   }
   .about-text-box {
-    width: 50%;
+    width: 60%;
   }
   iframe {
     width: 50vw;
@@ -393,14 +424,20 @@ dl {
   .service-items2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding-top: 3em;
   }
 
   .service-style {
     border-right: white solid 1px;
   }
 
+  .service-text {
+    max-width: 1000px;
+    padding: 1em 2em;
+  }
+
   .contact-text {
-    max-width: 20vw;
+    max-width: 300px;
   }
   .footer-container {
     display: grid;
@@ -409,9 +446,26 @@ dl {
     justify-items: space-evenly;
   }
 
+  .contact-flex,
+  .about-text {
+    padding: 0 2em;
+  }
+
   .footer-flex,
   .copyRight {
     margin: 0 auto;
     text-align: center;
+  }
+
+  .fee {
+    top: 40px;
+  }
+
+  .appointment {
+    bottom: 50px;
+  }
+  .fee,
+  .appointment {
+    padding: 0.5em 4em;
   }
 }
